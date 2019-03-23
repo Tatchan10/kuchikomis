@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+
+     <%= form_for @user,:url => {:action => 'update'}, :html => {:multipart => true} do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
+
+      <div class="form-group">
+      <%= f.label :name, 'Name' %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :email, 'Email' %>
+      <%= f.email_field :email, class: 'form-control' %>
+    </div>
+    
+    <div class="row">
+    <div class="col-xs-6 form-group">
+      <%= f.label :age, '年齢', class:'control-label' %>
+      <%= f.select :age, [["",""], ["10代","10"], ["20代","20"], ["30代","30"], ["40代","40"], ["50代","50"], ["60代","60"], ["70代以上","70"] ], {},   class: 'form-control' %>
+    </div>
+ 
+    <div class="col-xs-6 form-group">
+      <%= f.label :sex, '性別', class:'control-label' %>
+      <%= f.select :sex, [["",""], ["女性","female"], ["男性","male"]], {},   class: 'form-control' %>
+    </div>
+    </div>
+    
+    
+    <div class="form-group">
+      <%= f.label :password, 'Password' %>
+      <%= f.password_field :password, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password_confirmation, 'Confirmation' %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%=f.label :image_user,"ユーザー画像" %>
+      <%= f.file_field :image_user, class: 'form-control' %>
+    </div>
+  
+    <div class="form-group">
+      <%= f.label :introduce, 'Detail' %>
+      <%= f.text_field :introduce, class: 'form-control' %>
+    
+      <%= f.submit 'プロフィール編集を完了する', class: 'btn btn-primary btn-block' %>
+    <% end %>
+  </div>
+</div>

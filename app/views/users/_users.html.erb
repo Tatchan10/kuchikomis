@@ -1,0 +1,31 @@
+<% if users.any? %>
+
+  <ul class="media-list">
+    
+    <% users.each do |user| %>
+
+      <li class="media">
+        <div class="media-left">
+          <% if user.image_user.present? %>
+            <%= image_tag user.image_user.thumb.url %>
+          <% else %>
+            <div class="user">
+              <%=  image_tag("/user_images/wanko.jpg", :size => "40×40") %>
+            </div>
+          <% end %>
+        </div>
+        <div class="media-body">
+          <div>
+            <%= user.name %>
+          </div>
+          <div>
+            <p>
+              <%= link_to 'View profile', user_path(user) %>
+            </p>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  <%= paginate users %>
+<% end %>
