@@ -1,0 +1,38 @@
+<%= javascript_include_tag 'jquery.raty.js' %>
+<aside class="col-md-4">
+      
+  <%= form_for(@review) do |f| %>
+  
+
+  <div class="form-group">
+    <%= f.label :product_id %>
+    <%= f.collection_select :product_id, Product.all, :id, :name,:prompt => "なんか選んでよ" %>
+    
+    <div id="star">
+        <%= f.label :star %>
+        <%= f.hidden_field :point, id: :review_point %>
+    </div>
+    
+    <%= f.text_area :content, class: 'form-control', rows: 5 %>
+  </div>
+        
+  <%= f.submit '送信', class: 'btn btn-primary btn-block' %>
+
+<% end %>
+</aside>
+
+<h1>Ajax#index</h1>
+<p id="hoge">赤色になるよ</p>
+
+
+<script>
+$("#hoge").css("color","red")
+  
+$('#star').raty({
+  size     : 36,
+  starOff:  '<%= asset_path('star-off.png') %>',
+  starOn : '<%= asset_path('star-on.png') %>',
+  scoreName: 'review[point]' ,
+});
+
+</script>

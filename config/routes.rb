@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   resources :users
   resources :reviews, only: [:index, :new, :create, :destroy]
   
-  resources :products, only: [:index, :show]
+  resources :products, only: [:id, :index, :show]
 end

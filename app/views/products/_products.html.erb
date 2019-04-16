@@ -1,0 +1,37 @@
+<% if products.any? %>
+  <ul class="media-list">
+    <% products.each do |product| %>
+      <li class="media">
+        <div class="media-left">
+          <% if product.image_product.present? %>
+            <%= image_tag product.image_product.thumb.url %>
+          <% else %>
+            <div class="product">
+              <%=  image_tag("/user_images/wanko.jpg", :size => "40×40") %>
+            </div>
+          <% end %>
+        </div>
+        <div class="media-body">
+          <div>
+            <%= product.name %>
+          </div>
+          <div class="average-review-rating" data-score=<%= @average_review %>> <%= @average_review %></div>
+          <div>
+            <p><%= link_to 'View profile', product_path(product) %></p>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  <%= paginate products %>
+<% end %>
+
+<script>
+    $('.average-review-rating').raty({
+        readOnly: true,
+        path: '/assets/',
+        score: function() {
+            return $(this).attr('data-score')
+        }
+    });
+</script>

@@ -9,11 +9,55 @@
   </div>
 <% end %>
 
-<div class="text-center">
-  <h1>Welcome to the Microposts</h1>
-  <%= link_to '口コミを投稿する', new_review_path, class: 'btn btn-lg btn-primary' %>
-  <%= link_to '口コミを見る', reviews_path, class: 'btn btn-lg btn-primary' %>
+<div class="main-container1">
+  <h1>あなたに最適なシャンプーを。</h1>
+  <p>BIHATUはあなたに最も合うシャンプーを探せるサイトです。</p>
+  <% if logged_in? %>
+    <div class="text-center">
+      <%= link_to '口コミを投稿する', new_review_path, class: 'btn btn-lg btn-primary' %>
+      <%= link_to '口コミを見る', reviews_path, class: 'btn btn-lg btn-primary' %>
+    </div>
+  <% else %>
+    <div class="center jumbotron">
+      <div class="text-center">
+        <h1>Welcome to the Microposts</h1>
+        <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
+      </div>
+    </div>
+  <% end %>
 </div>
+
+<% content_for :cover do %>
+  <div class="cover">
+    <div class="cover-inner">
+      <div class="cover-contents">
+        <h1>素敵なモノと出会う場所</h1>
+        <div class="text-center">
+      <%= link_to '口コミを投稿する', new_review_path, class: 'btn btn-lg btn-primary' %>
+      <%= link_to '口コミを見る', reviews_path, class: 'btn btn-lg btn-primary' %>
+    </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+<!-- HTMLに記述します -->
+<div class="sample3"> ABC123</div>
+<div class="sample4"> にほんごのうつくしいフォントですね </div>
+
+
+<table class="table table-striped table-bordered">
+  <tr>
+    <th class="text-center">都道府県</th>
+    <th class="text-center">人口（人）</th>
+    <th class="text-center">面積（km<sup>2</sup>）</th>
+  </tr>
+  <tr>
+    <td>東京都</td>
+    <td class="text-right">13,507,347人</td>
+    <td class="text-right">2,190.90km<sup>2</sup></td>
+  </tr>
 
 <h1>Ajax#index</h1>
 <p id="hoge">赤色になるよ</p>

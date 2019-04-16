@@ -1,0 +1,57 @@
+<% if reviews.any? %>
+  <div class="reviews-index-item">
+  <ul class="media-list">
+    <% reviews.each do |review| %>
+      <li class="media">
+        <div class="media-left">
+          <% if review.product.image_product.present? %>
+            <%= image_tag review.product.image_product.thumb.url %>
+          <% else %>
+            <div class="user">
+              <%=  image_tag("/user_images/wanko.jpg", :size => "40×40") %>
+            </div>
+          <% end %>
+        </div>
+        <div class="media-body">
+          <div>
+            <p>
+              <div class="sample4">■ 投稿者:あああ <%= review.user.name %></div>
+            </p>
+          </div>
+          <div>
+            <p>
+              <p><div class="sample4">■ 商品名: ABC123 <%= review.product.name %>あああ</div></p>
+            </p>
+            
+            <p><div class="sample4">■ 評価：<div class="star-rating" data-score= <%= review.point %>></div></div></p>
+           
+            <p>
+             <div class="sample4">■ 感想：<%= review.content %></div>
+            </p>
+            <p>
+            
+            </p>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  <%= paginate reviews %>
+<% end %>
+
+  
+<script>
+$('#star6').raty({
+  readOnly: true,
+  score: 4
+});
+
+$('.star-rating').raty({
+  path: '/assets',
+  readOnly: true,
+  score: function() {
+  return $(this).attr('data-score');
+  
+  }
+});
+</script>
