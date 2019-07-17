@@ -1,10 +1,12 @@
 <% if products.any? %>
+  <div id="container1">
+    
   <ul class="media-list">
     <% products.each do |product| %>
       <li class="media">
         <div class="media-left">
-          <% if product.image_product.present? %>
-            <%= image_tag product.image_product.thumb.url %>
+          <% if product.image_product_sum.present? %>
+            <%= image_tag product.image_product_sum.thumb.url %>
           <% else %>
             <div class="product">
               <%=  image_tag("/user_images/wanko.jpg", :size => "40×40") %>
@@ -15,7 +17,8 @@
           <div>
             <%= product.name %>
           </div>
-          <div class="average-review-rating" data-score=<%= @average_review %>> <%= @average_review %></div>
+          <div class="star-rating" data-score= <%= @average_review[product.id] %>></div>
+          
           <div>
             <p><%= link_to 'View profile', product_path(product) %></p>
           </div>
@@ -24,6 +27,7 @@
     <% end %>
   </ul>
   <%= paginate products %>
+  </div>
 <% end %>
 
 <script>
@@ -34,4 +38,15 @@
             return $(this).attr('data-score')
         }
     });
+</script>
+
+<script>
+$('.star-rating').raty({
+  path: '/assets',
+  readOnly: true,
+  score: function() {
+  return $(this).attr('data-score');
+  
+  }
+});
 </script>

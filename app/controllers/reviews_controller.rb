@@ -13,18 +13,24 @@ class ReviewsController < ApplicationController
   
   def new
     @review = Review.new
+    @user = current_user
   end
 
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
-    if @review.save
+    if !@review
+      flash[:success] = '口コミはすでに投稿されています。'
+      redirect_to root_url
+    end
+    
+    if  @review.save
       flash[:success] = '口コミを投稿しました。'
       redirect_to root_url
     else
       @reviews = current_user.reviews.order('created_at DESC').page(params[:page])
       flash.now[:danger] = '口コミの投稿に失敗しました。'
-      redirect_to root_url
+      render :new
     end
   end
 
@@ -46,4 +52,5 @@ class ReviewsController < ApplicationController
       redirect_to root_url
     end
   end
+  
 end

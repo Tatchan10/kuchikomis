@@ -12,3 +12,4 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( users.css )
 Rails.application.config.assets.precompile += %w( jquery.raty.js)
 Rails.application.config.assets.precompile += %w( review.js)
+Rails.application.config.assets.paths << Rails.root.join("app", "assets", "fonts")

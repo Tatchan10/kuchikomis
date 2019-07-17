@@ -1,0 +1,521 @@
+<%# 
+<% if reviews.any? %>
+  <div class="block">
+    <div>
+      <% reviews.each do |review| %>
+      <article class = "henry post">
+        <h2 class = "review-content-title">
+          <span class = "review-index-img">
+            <% if review.user.image_user.present? %>
+              <%= image_tag review.user.image_user.thumb.url %>
+          <% else %>
+            <div class="user">
+              <%=  image_tag("/user_images/wanko.jpg", :size => "40×40") %>
+            </div>
+          <% end %>
+          </span>
+          <span>
+            <%= review.user.name %>
+          </span>
+        </h2>
+        <div class = "review-content">
+          <h3>おすすめ度</h3>
+          <div class="star-rating" data-score= <%= review.point %>></div>
+        </div>
+        
+        <div class = "review-content">
+          <div class = "content">
+            <div class = "text-wrapper">
+              <div class="text hidden open" style="heig<ht: auto;">
+                <h3>■評価した理由</h3>
+                <p><%= review.content %></p>
+              </div>
+              <div class="show_more2 active">-　閉じる</div>
+            </div>
+          </div>
+          <span class="review-user-name">2018/12/13</span>
+        </div>
+      </article>
+      <% end %>
+    </div>
+  </div>
+  <%= paginate reviews %>
+<% end %>
+
+
+
+<% if reviews.any? %>
+  <div class="reviews-index-item">
+  <ul class="media-list">
+    <% reviews.each do |review| %>
+      <li class="media">
+        <div class="media-left">
+          <% if review.product.image_product.present? %>
+            <%= image_tag review.product.image_product.thumb.url %>
+          <% else %>
+            <div class="user">
+              <%=  image_tag("/user_images/wanko.jpg", :size => "40×40") %>
+            </div>
+          <% end %>
+        </div>
+        <div class="media-body">
+          <div>
+            <p>
+              <div class="sample4">■ 投稿者:あああ <%= review.user.name %></div>
+            </p>
+          </div>
+          <div>
+            <p>
+              <p><div class="sample4">■ 商品名: ABC123 <%= review.product.name %>あああ</div></p>
+            </p>
+            
+            <p>■ 評価：<div class="star-rating" data-score= <%= review.point %>></div></p>
+           
+            <p>
+             <div class="sample4">■ 感想：<%= review.content %></div>
+            </p>
+            <p>
+            
+            </p>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  <%= paginate reviews %>
+<% end %>
+
+   <div class="block">
+  <div>
+    <% @reviews.each do |review| %>
+    <article class = "henry post">
+      <h2 class = "review-content-title">
+        <span class = "review-index-img">
+          <% if review.user.image_user.present? %>
+            <%= image_tag review.user.image_user.thumb.url %>
+        <% else %>
+          <div class="user">
+            <%=  image_tag("/user_images/wanko.jpg", :size => "40×40") %>
+          </div>
+        <% end %>
+        </span>
+        <span>
+          <%= review.user.name %>
+          </span>
+        </h2>
+        <div class = "review-content">
+          <h2 class="school-category-title stripe">
+            おすすめ度平均
+          </h2>
+          <div class="star-rating" data-score= <%= review.point %>></div>
+        </div>
+        
+        <div class = "review-content">
+          <div class = "content">
+            <div class = "text-wrapper">
+              <div class="text hidden open" style="heig<ht: auto;">
+                <h3>■評価した理由</h3>
+                <p><%= review.content %></p>
+              </div>
+              <div class="show_more2 active">-　閉じる</div>
+            </div>
+          </div>
+          <span class="review-user-name">2018/12/13</span>
+        </div>
+      </article>
+      <% end %>
+    </div>
+  </div>
+  <%= paginate @reviews %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+<div class="row">
+  <aside class="col-xs-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= @product.name %></h3>
+      </div>
+      <div class="panel-body">
+         <% if @product.image_product? %>
+           <%= image_tag @product.image_product.url %>
+          <% else %>
+            <div class="user">
+              <%=  image_tag("/user_images/wanko.jpg", :size => "400×400") %>
+            </div>
+          <% end %>
+      </div>
+    </div>
+  </aside>
+  <div class="col-md-8">
+  <table class="table table-bordered">
+  <tr>
+    <th class="text-center">商品名</th>
+    <td class="text-center"><%= @product.name %></td>
+  </tr>
+  <tr>
+    <th class="text-center">価格</th>
+    <td class="text-center"><%= @product.price %></td>
+  </tr>
+  <tr>
+    <th class="text-center">内容量</th>
+    <td class="text-center"><%= @product.capacity %></td>
+  </tr>
+  <tr>
+    <th class="text-center">評価</th>
+    <td class="text-center"><div class="star-rating" data-score= <%= @average_review[@product.id] %>></div></td>
+  </tr>
+  </table>
+
+  </div>
+
+
+    
+  <div class="col-xs-8">
+    <ul class="nav nav-tabs nav-justified">
+      <li class="<%= 'active' if current_page?(product_path(@product)) %>"><%= link_to product_path(@product) do %>投稿<span class="badge"><%= @count_posts %></span><% end %></li>
+      <li><a href="#">Followings</a></li>
+      <li><a href="#">Followers</a></li>
+    </ul>
+    <%= render 'reviews/reviews', reviews: @reviews %>
+  </div>
+</div>
+<% end %>
+
+
+<article class = "henry post">
+              <h2 class = "review-content-title">
+                <span class = "review-index-img">
+                  <% if review.user.image_user.present? %>
+                    <%= image_tag review.user.image_user.thumb.url %>
+                  <% else %>
+                    <div class="user">
+                      <%=  image_tag("/user_images/wanko.jpg", :size => "40×40") %>
+                    </div>
+                  <% end %>
+                </span>
+                <span>
+                  <%= review.user.name %>
+                </span>
+              </h2>
+              <div class = "review-content">
+                <h2 class="school-category-title stripe">
+                  おすすめ度平均
+                </h2>
+                <div class="star-rating" data-score= <%= review.point %>></div>
+              </div>
+        
+            <div class = "review-content">
+              <div class = "content">
+                <div class = "text-wrapper">
+                  <div class="text hidden open" style="heig<ht: auto;">
+                    <h3>■評価した理由</h3>
+                    <p><%= review.content %></p>
+                  </div>
+                <div class="show_more2 active">-　閉じる</div>
+              </div>
+            </div>
+            <span class="review-user-name">2018/12/13</span>
+            </div>
+            </article>
+            
+            
+            if @review.save
+      flash[:success] = '口コミを投稿しました。'
+      redirect_to root_url
+    else
+      @reviews = current_user.reviews.order('created_at DESC').page(params[:page])
+      flash.now[:danger] = '口コミの投稿に失敗しました。'
+      render :new
+    end
+    
+    
+    
+    
+
+
+
+<% if reviews.any? %>
+  <div id = "wrapper">
+    <div id = "container">
+      <div id = "content">
+        <div id = "sidebar">
+          
+        </div>
+        <div id = "main">
+          <div class = "breadcrumbs">
+            <a href = "/">
+              "TOP"
+            </a>
+            <span class="current">DIVE INTO CODEのクチコミ一覧</span>
+          </div>
+          <h1 class = "pageTitle">
+            Runteqの口コミ一覧
+          </h1>
+          <div class="image-top">
+            <a href="#"><%=  image_tag("/FotoJet (9).jpg") %></a>
+          </div>
+          <img class="school-image" src="/FotoJet (9).jpg">
+          
+          <% reviews.each do |review| %>
+            <article class = "henry post">
+              <h2 class = "review-content-title">
+                <span class = "review-index-img">
+            <% if review.user.image_user.present? %>
+              <%= image_tag review.user.image_user.thumb.url %>
+          <% else %>
+            <div class="user">
+              <%=  image_tag("/user_images/wanko.jpg", :size => "40×40") %>
+            </div>
+          <% end %>
+          </span>
+          <span>
+            <%= review.user.name %>
+          </span>
+        </h2>
+        <div class = "review-content">
+          <h2 class="school-category-title stripe">
+            おすすめ度
+          </h2>
+          <div class="star-rating" data-score= <%= review.point %>></div>
+        </div>
+        
+        <div class = "review-content">
+          <div class = "content">
+            <div class = "text-wrapper">
+              <div class="text hidden open" style="heigt: auto;">
+                <h3>■評価した理由</h3>
+                <p><%= review.content %></p>
+              </div>
+              <div class="show_more2 active">-　閉じる</div>
+            </div>
+          </div>
+          <span class="review-user-name">2018/12/13</span>
+        </div>
+      </article>
+      <% end %>
+    
+  </div>
+  <%= paginate reviews %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<% reviews.each do |review| %>
+      <article class = "henry post">
+        <h2 class = "review-content-title">
+          <span class = "review-index-img">
+            <% if review.user.image_user.present? %>
+              <%= image_tag review.user.image_user.thumb.url %>
+          <% else %>
+            <div class="user">
+              <%=  image_tag("/user_images/wanko.jpg", :size => "40×40") %>
+            </div>
+          <% end %>
+          </span>
+          <span>
+            <%= review.user.name %>
+          </span>
+        </h2>
+        <div class = "review-content">
+          <h2 class="school-category-title stripe">
+            おすすめ度平均
+          </h2>
+          <div class="star-rating" data-score= <%= review.point %>></div>
+        </div>
+        
+        <div class = "review-content">
+          <div class = "content">
+            <div class = "text-wrapper">
+              <div class="text hidden open" style="heigt: auto;">
+                <h3>■評価した理由</h3>
+                <p><%= review.content %></p>
+              </div>
+              <div class="show_more2 active">-　閉じる</div>
+            </div>
+          </div>
+          <span class="review-user-name">2018/12/13</span>
+        </div>
+      </article>
+      <% end %>
+
+
+
+
+users show
+
+<div class="row">
+  <aside class="col-xs-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= @user.name %></h3>
+      </div>
+      <div class="panel-body">
+         <% if @user.image_user? %>
+           <%= image_tag @user.image_user.url %>
+          <% else %>
+            <div class="user">
+              <%=  image_tag("/user_images/wanko.jpg", :size => "400×400") %>
+            </div>
+          <% end %>
+      </div>
+    </div>
+  </aside>
+  <div class="col-md-8">
+    <p class="orange b">名前</p>
+    <p><span class="orange b"><%= @user.name %></span>
+    <p class="orange b">自己紹介</p>
+    <p><%= @user.introduce %></p>
+    <h2>投稿した口コミ一覧</h2>
+    <%= render 'reviews/reviews', reviews: @reviews %>
+  </div>
+  <% if current_user.id == @user.id %>
+    <%= link_to 'プロフィールを編集する', edit_user_path(@user) %>
+  <% end %>
+  
+    
+  <div class="col-xs-8">
+    <ul class="nav nav-tabs nav-justified">
+      <li class="<%= 'active' if current_page?(user_path(@user)) %>"><%= link_to user_path(@user) do %>投稿<span class="badge"><%= @count_posts %></span><% end %></li>
+      <li><a href="#">Followings</a></li>
+      <li><a href="#">Followers</a></li>
+    </ul>
+    <%= render 'reviews/reviews', reviews: @reviews %>
+  </div>
+</div>
+
+
+
+
+<div class="image-top">
+    <a href="#"><%=  image_tag("/FotoJet (9).jpg") %></a>
+  </div>
+  
+  <ul class="slider">
+  
+    <li><a href="#"><%=  image_tag("/FotoJet (9).jpg") %></a></li>
+    
+    <li><a href="#"><%=  image_tag("/FotoJet (9).jpg") %></a></li>
+    <li><a href="#"><%=  image_tag("/FotoJet (10).jpg") %></a></li>
+    <li><a href="#"><%=  image_tag("/FotoJet (12).jpg") %></a></li>
+    <li><a href="#"><%=  image_tag("/FotoJet (9).jpg") %></a></li>
+    <li><a href="#"><%=  image_tag("/FotoJet (10).jpg") %></a></li>
+  
+</ul>
+
+<div data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>
+  <div><h3>1</h3></div>
+  <div><h3>2</h3></div>
+  <div><h3>3</h3></div>
+  <div><h3>4</h3></div>
+  <div><h3>5</h3></div>
+  <div><h3>6</h3></div>
+</div>
+
+
+<div class="slider">
+  <div><%=  image_tag("/user_images/wanko.jpg", :size => "40×40") %></div>
+  <div><%=  image_tag("/user_images/wanko.jpg", :size => "40×40") %></div>
+  <div><%=  image_tag("/user_images/wanko.jpg", :size => "40×40") %></div>
+</div>
+
+
+<ul class="slider">
+    
+    <li><a href="#"><%=  image_tag("/gorira.png", :size =>'320x320') %></a></li>
+    
+    <li><a href="#"><%=  image_tag("/gorira.png", :size =>'320x320') %></a></li>
+    <li><a href="#"><%=  image_tag("/gorira.png", :size =>'320x320') %></a></li>
+    <li><a href="#"><%=  image_tag("/gorira.png", :size =>'320x320') %></a></li>
+    <li><a href="#"><%=  image_tag("/gorira.png", :size =>'320x320') %></a></li>
+    <li><a href="#"><%=  image_tag("/gorira.png", :size =>'320x320') %></a></li>
+</ul>
+
+
+<ul class="slider">
+    
+    <li><a href="#"><%=  image_tag("/gorira.png") %></a></li>
+    
+    <li><a href="#"><%=  image_tag("/gorira.png") %></a></li>
+    <li><a href="#"><%=  image_tag("/gorira.png") %></a></li>
+    <li><a href="#"><%=  image_tag("/gorira.png") %></a></li>
+    <li><a href="#"><%=  image_tag("/gorira.png") %></a></li>
+    <li><a href="#"><%=  image_tag("/gorira.png") %></a></li>
+</ul>
+
+
+<ul class="slider">
+  
+    <li><a href="#"><%=  image_tag("/FotoJet (9).jpg") %></a></li>
+    
+    <li><a href="#"><%=  image_tag("/FotoJet (9).jpg") %></a></li>
+    <li><a href="#"><%=  image_tag("/FotoJet (10).jpg") %></a></li>
+    <li><a href="#"><%=  image_tag("/FotoJet (12).jpg") %></a></li>
+    <li><a href="#"><%=  image_tag("/FotoJet (9).jpg") %></a></li>
+    <li><a href="#"><%=  image_tag("/FotoJet (10).jpg") %></a></li>
+  
+</ul>
+
+
+<ul class="your-class">
+    
+    <li><a href="#"><%=  image_tag("/gorira.png", :size =>'320x320') %></a></li>
+    
+    <li><a href="#"><%=  image_tag("/gorira.png", :size =>'320x320') %></a></li>
+    <li><a href="#"><%=  image_tag("/gorira.png", :size =>'320x320') %></a></li>
+    <li><a href="#"><%=  image_tag("/gorira.png", :size =>'320x320') %></a></li>
+    <li><a href="#"><%=  image_tag("/gorira.png", :size =>'320x320') %></a></li>
+    <li><a href="#"><%=  image_tag("/gorira.png", :size =>'320x320') %></a></li>
+</ul>
+
+  $('.slider').slick({
+    centerMode: true,
+    centerPadding: '100px',
+    dots:true,
+    focusOnSelect:true,
+});
+
+$(document).ready(function(){
+ 　$('.your-class').slick({
+ 　　autoplay: true,
+ 　　adaptiveHeight: true,
+ 　　arrows: true,
+ 　　prevArrow:'<div class="prev">PREV</div>',
+ 　　nextArrow:'<div class="next">NEXT</div>'
+ 　});
+ });
+ 
+ 
+ <div class = "review-content">
+            <div class = "content">
+              <div class = "text-wrapper">
+                <div class="text hidden open" style="heigt: auto;">
+                  <h3>■評価した理由</h3>
+                  <p><%= review.content %></p>
+                </div>
+                <div class="show_more2 active">-　閉じる</div>
+              </div>
+            </div>
+            <span class="review-user-name">2018/12/13</span>
+          </div>
+          
+          
+          
+def create
+    review = Review.find(params[:review_id])
+    current_user.like(review)
+    flash[:success] = 'いいねしました。'
+    redirect_to root_path
+  end
+
+  def destroy
+    review = Review.find(params[:review_id])
+    current_user.unlike(review)
+    flash[:success] = 'いいねを解除しました。'
+    redirect_to root_path
+  end

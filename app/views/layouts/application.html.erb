@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Kuchikomis</title>
     <%= csrf_meta_tags %>
 
@@ -10,6 +13,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Ravi+Prakash" rel="stylesheet">
     <link href="https://fonts.googleapis.com/earlyaccess/kokoro.css" rel="stylesheet">
+    
+    
+    <link rel="stylesheet" type="text/scss" href="slick.scss"/>
+    <link rel="stylesheet" type="text/scss" href="slick-theme.scss"/>
+
+    <link rel="stylesheet" type="text/css" href=" review.css">
+
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   </head>
 
   
@@ -19,11 +30,12 @@
 
     <%= yield :cover %>
 
-    <div class="container">
+
       <%= render 'layouts/flash_messages' %>
 
       <%= yield %>
-    </div>
+   
+  
 
   </body>
   

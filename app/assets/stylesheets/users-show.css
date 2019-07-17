@@ -1,0 +1,294 @@
+#wrapper {
+    /*min-width: 1230px;*/
+}
+
+@media (max-width: 480px){
+#wrapper {
+    overflow: hidden;
+    min-width: 95%;
+}
+}
+
+
+
+
+@media (max-width: 480px){
+#container, #content, #main, #sidebar {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-bottom: 50px;
+}
+}
+
+@media only screen and (max-width: 480px){
+#container, #content, #main, #sidebar, #sub-sidebar {
+    float: none;
+    width: auto;
+    margin-bottom: 50px;
+}
+}
+@media (max-width: 768px){
+#container, #content, #main, #sidebar {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-bottom: 50px;
+}
+}
+
+#container {
+    width: 1230px;
+    margin: 0 auto;
+}
+
+#container {
+    width: 600px;
+    margin: 0 auto;
+}
+
+#container {
+    width: 700px;
+    margin: 0 auto;
+}
+
+
+@media (max-width: 480px){
+#container, #content, #main, #sidebar, #sub-sidebar {
+    float: none;
+    width: 100%;
+    margin-bottom: 50px;
+}
+}
+@media (max-width: 480px){
+#container, #content, #main, #sidebar {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-bottom: 50px;
+}
+}
+
+
+
+
+#content {
+    position: relative;
+    clear: both;
+    margin: 0 0 20px 20px;
+}
+
+@media (max-width: 480px){
+#header, #content {
+    width: auto;
+    padding-left: 3%;
+    padding-right: 3%;
+    margin: auto;
+}
+}
+
+#sidebar {
+    width: 305px;
+}
+
+@media only screen and (max-width: 480px){
+#sidebar {
+    margin-bottom: 30px;
+}
+}
+
+.sidebarTitle {
+    padding: 2em;
+    border-bottom: 1px solid #ccc;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+
+
+.breadcrumbs {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    font-size: 15px;
+    width: 625px;
+}
+
+.breadcrumbs .current {
+    display: inline-block;
+    float: left;
+    position: relative;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+    padding: 0.29em 0.5em;
+    background-color: white;
+    color: gray;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.breadcrumbs a {
+    display: inline-block;
+    float: left;
+    position: relative;
+    margin-top: 0.25em;
+    margin-right: 0.5em;
+    margin-bottom: 0.25em;
+    padding: 0.29em;
+    background-color: white;
+    color: #FF773E;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+
+body {
+font-family: 'Avenir','Helvetica Neue','Helvetica','Arial','Hiragino Sans','ヒラギノ角ゴシック',YuGothic,'Yu Gothic','メイリオ', Meiryo,'ＭＳ Ｐゴシック','MS PGothic'  
+}
+
+@media screen and (min-width: 400px){
+.school-content {
+    position: absolute;
+    top: 30%;
+    margin: 10px;
+    padding: 0;
+    color: #000;
+    font-size: 40px;
+    text-align: center;
+    width:100%;
+    font-family: "UD デジタル 教科書体 NK-B","UD Digi Kyokasho NK-B";
+     text-shadow    : 
+       2px  2px 1px #ff7f00,
+      -2px  2px 1px #ff7f00,
+       2px -2px 1px #ff7f00,
+      -2px -2px 1px #ff7f00,
+       2px  0px 1px #ff7f00,
+       0px  2px 1px #ff7f00,
+      -2px  0px 1px #ff7f00,
+       0px -2px 1px #ff7f00; 
+    
+}
+}
+
+@media screen and (max-width: 400px){
+.school-content {
+    position: absolute;
+    top: 37%;
+    margin: 0;
+    padding: 0;
+    color: #000;
+    font-size: 30px;
+    text-align: center;
+    width:100%;
+    font-family: "UD デジタル 教科書体 NK-B","UD Digi Kyokasho NK-B";
+     text-shadow    : 
+       2px  2px 1px #ff7f00,
+      -2px  2px 1px #ff7f00,
+       2px -2px 1px #ff7f00,
+      -2px -2px 1px #ff7f00,
+       2px  0px 1px #ff7f00,
+       0px  2px 1px #ff7f00,
+      -2px  0px 1px #ff7f00,
+       0px -2px 1px #ff7f00; 
+    
+}
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+@media screen and (max-width: 400px){
+.elem {
+    position: relative;
+    width: 350px;
+    margin: 30px auto 0;
+    opacity: 0;
+}
+}
+
+@media screen and (min-width: 400px){
+.elem {
+    position: relative;
+    width: 350px;
+    margin: 30px auto 0;
+    opacity: 0;
+}
+}
+
+.example {
+width: 100%;
+
+}
+
+@media screen and (min-width: 400px){
+.school-back {
+    width: 100%;
+    opacity: 0.7;
+}
+}
+
+.school-back {
+    width: 100%;
+    opacity:0.7;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.school-back img {
+    width: 100%;
+}
+
+.media-list1 {
+    list-style: none;
+    margin-left: auto;
+}
+
+.media-list {
+    padding-left: 10px;
+}
+
+#main1 {
+    position: absolute;
+    top: 0px;
+    left: 340px;
+    width: 625px;
+    margin-bottom: 50px;
+}
+
+@media (max-width: 480px){
+#main1{
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-bottom: 50px;
+}
+}
+
+.review-new {
+    margin-bottom: 30px;
+}
+
+.pageTitle {
+    padding-bottom: .5em;
+    border-bottom: 1px solid #ccc;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.pageTitle span {
+    display: block;
+    margin-bottom: .2em;
+    font-size: 7px;
+}

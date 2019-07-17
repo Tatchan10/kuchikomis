@@ -11,4 +11,9 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def counts(user)
+    @count_reviews = user.reviews.count
+    @count_like_reviews = user.like_reviews.count
+  end
+  
 end

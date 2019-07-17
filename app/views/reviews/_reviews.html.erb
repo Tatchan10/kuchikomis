@@ -1,43 +1,34 @@
-<% if reviews.any? %>
-  <div class="reviews-index-item">
-  <ul class="media-list">
-    <% reviews.each do |review| %>
-      <li class="media">
-        <div class="media-left">
-          <% if review.product.image_product.present? %>
-            <%= image_tag review.product.image_product.thumb.url %>
-          <% else %>
-            <div class="user">
-              <%=  image_tag("/user_images/wanko.jpg", :size => "40×40") %>
-            </div>
-          <% end %>
-        </div>
-        <div class="media-body">
-          <div>
-            <p>
-              <div class="sample4">■ 投稿者:あああ <%= review.user.name %></div>
-            </p>
+<div id="container">
+  <div id="content">
+    <div id="main">
+      <% reviews.each do |review| %>
+        <article class = "henry post">
+          <h2 class = "review-content-title">
+            <span class = "review-index-img">
+              <% if review.user.image_user.present? %>
+                <%= image_tag review.user.image_user.thumb.url %>
+              <% else %>
+                <div class="user">
+                  <%=  image_tag("/user_images/wanko.jpg", :size => "40×40") %>
+                </div>
+              <% end %>
+            </span>
+            <%= review.user.name %>
+          </h2>
+          <div class = "review-content">
+            <h3>おすすめ度</h3>
+            <div class="star-rating" data-score= <%= review.point %>></div>
           </div>
-          <div>
-            <p>
-              <p><div class="sample4">■ 商品名: ABC123 <%= review.product.name %>あああ</div></p>
-            </p>
-            
-            <p><div class="sample4">■ 評価：<div class="star-rating" data-score= <%= review.point %>></div></div></p>
-           
-            <p>
-             <div class="sample4">■ 感想：<%= review.content %></div>
-            </p>
-            <p>
-            
-            </p>
+        
+          <div class = "review-content">
+            <h3>評価理由</h3>
+            <%= review.content %>>
           </div>
-        </div>
-      </li>
-    <% end %>
-  </ul>
-  <%= paginate reviews %>
-<% end %>
+        </article>
+      <% end %>
+    </div>
+  </div>
+</div>
 
   
 <script>

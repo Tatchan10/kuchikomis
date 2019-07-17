@@ -1,0 +1,303 @@
+
+
+.mb-auto, .my-auto {
+    margin-bottom: auto !important;
+}
+
+.mt-auto, .my-auto {
+    margin-top: auto !important;
+}
+
+
+user agent stylesheet
+div {
+    display: block;
+}
+.text-white {
+    color: #fff !important;
+}
+.text-center {
+    width:100%;
+    text-align: center !important;
+}
+body, html {
+    width: 100%;
+    height: 100%;
+    font-family: 'Boku2-Regular';
+    background-color: #fff;
+}
+
+
+div {
+    display: block;
+}
+
+.breadcrumbs {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    font-size: 15px;
+    width: 625px;
+}
+
+
+
+#main {
+    top: 0px;
+    left: 0;
+    width: 625px;
+    margin-bottom: 50px;
+}
+
+
+
+h2 {
+    display: block;
+    font-size: 36px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-weight: bold;
+}
+
+
+h2::before{
+    box-sizing: border-box;
+}
+
+h2::after{
+    box-sizing: border-box;
+}
+
+user agent stylesheet
+div {
+    display: block;
+}
+
+
+.school-category-title {
+    padding: 20px 0;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+
+.stripe {
+    position: relative;
+    padding-bottom: 10px;
+}
+
+
+.stripe:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 7px;
+    background: repeating-linear-gradient(-45deg, orange, orange 2px, #fff 2px, #fff 4px);
+}
+
+
+
+.school-image {
+    width: 600px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+ .school-image{
+    width: 100%;
+    height: auto;
+    height: 100%;
+  }
+}
+
+
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+
+.image-top{
+    text-align: center;
+}
+
+.image-top img{
+  width: 600px;
+  
+}
+
+@media (max-width: 768px) {
+ .image-top img{
+    width: 100%;
+    height: auto;
+    height: 100%;
+  }
+}
+
+
+.block {
+    overflow: hidden;
+    margin: 0 0 10px;
+    border: 1px solid #FFF;
+    background-color: rgba(255,255,255,0.8);
+    border-bottom: 1px solid #ccc;
+}
+
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+    display: block;
+}
+.review-index-img img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-position: center center;
+    border: 1px solid #fff;
+}
+
+.review-content-title {
+    padding: 15px 0;
+    font-size: 1.6rem;
+}
+
+.text_wrapper {
+    position: relative;
+    margin-bottom: 45px;
+}
+
+.text {
+    height: 90px;
+    overflow: hidden;
+}
+
+.review-content {
+    padding: 10px;
+}
+
+
+h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+
+
+#wrapper {
+    /*min-width: 1230px;*/
+}
+
+@media (max-width: 480px){
+#wrapper {
+    overflow: hidden;
+    min-width: 95%;
+}
+}
+
+
+@media (max-width: 480px){
+#header, #content {
+    width: auto;
+    padding-left: 3%;
+    padding-right: 3%;
+    margin: auto;
+}
+}
+
+#content {
+    position: relative;
+    clear: both;
+}
+
+.container1 {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .container1 {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container1 {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container1 {
+    width: 1170px;
+  }
+}
+
+
+
+
+#content {
+    position: relative;
+    clear: both;
+    margin: 0 0 20px 20px;
+}
+
+@media (max-width: 480px){
+#header, #content {
+    width: auto;
+    padding-left: 3%;
+    padding-right: 3%;
+    margin: auto;
+}
+}
+
+.glyphicon-heart:before {
+  color: #f00;
+}
+
+.like {
+  font-size: 1.17em;
+}
+
+
+.image-top1 img{
+  width: 300px;
+  
+}
+
+
+#main_title {
+    text-align:center;
+    color:white;
+    background-color:black;
+}
+
+.sub_title {
+    text-align: center;
+    background-color: LightGrey;
+    color: white;
+}
+
+.sub_detail {
+    text-align: center;
+}
+
+#icon_img {
+    width: 300px;
+    height: 300px;
+    background-color: LightBlue;
+    float: left; /* ここを書き加える */
+}
+
+#name {
+    width: 680px;
+    height: 300px;
+    background-color: LightGreen;
+    float: left; /* ここを書き加える */
+}
+
+#container1 {
+    width: 750px;
+    margin: 0 auto;
+}

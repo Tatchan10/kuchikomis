@@ -1,28 +1,46 @@
 <%= javascript_include_tag 'jquery.raty.js' %>
-<aside class="col-md-4">
-      
-  <%= form_for(@review) do |f| %>
-  
+<div id="wrapper">
+  <div id="container">
+    <div id="content">
+      <div id="sidebar">
+            
+      </div>
+      <div id="main">
+        <div class="breadcrumbs"><a href="/">TOP</a><%= link_to @user.name+'さんのマイページ', user_path(current_user) %><span class="current">クチコミ投稿</span></div>
+            
+          <h5 class="pageTitle">
+            クチコミ投稿
+          </h5>
+          
+            <%= form_for(@review) do |f| %>
+            <%= render 'layouts/error_messages', model: f.object %>
 
-  <div class="form-group">
-    <%= f.label :product_id %>
-    <%= f.collection_select :product_id, Product.all, :id, :name,:prompt => "なんか選んでよ" %>
-    
-    <div id="star">
-        <%= f.label :star %>
-        <%= f.hidden_field :point, id: :review_point %>
-    </div>
-    
-    <%= f.text_area :content, class: 'form-control', rows: 5 %>
-  </div>
+            <div class="form-group">
+              <%= f.label :商品 %><br>
+              <%= f.collection_select :product_id, Product.all, :id, :name,:prompt => "なんか選んでよ" %>
+            </div>   
+              
+            <div class="form-group">
+              <div id="star">
+                <%= f.label :star %><br>
+                <%= f.hidden_field :point, id: :review_point %>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <%= f.label :評価理由 %><br>
+              <%= f.text_area :content, class: 'form-control',placeholder:"例：頭皮の炎症が収まり、髪がサラサラになりました！" , rows: 5 %>
+            </div>
         
-  <%= f.submit '送信', class: 'btn btn-primary btn-block' %>
+            <%= f.submit '送信', class: 'btn btn-primary btn-block' %>
 
-<% end %>
-</aside>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<h1>Ajax#index</h1>
-<p id="hoge">赤色になるよ</p>
 
 
 <script>

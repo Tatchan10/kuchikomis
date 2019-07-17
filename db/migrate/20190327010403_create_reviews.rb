@@ -7,6 +7,8 @@ class CreateReviews < ActiveRecord::Migration[5.0]
       t.references :product, foreign_key: true
 
       t.timestamps
+      
+      t.index [:user_id, :product_id], unique: true
     end
   end
 end

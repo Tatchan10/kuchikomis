@@ -25,8 +25,6 @@ class UsersController < ApplicationController
     end
   end
 
-    
-
   def edit
     @user = User.find(params[:id])
   end
@@ -62,6 +60,12 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     flash[:success] = "User deleted"
     redirect_to users_url
+  end
+  
+  def like_reviews
+    @user = User.find(params[:id])
+    @like_reviews = @user.like_reviews.page(params[:page])
+    counts(@user)
   end
   
   private

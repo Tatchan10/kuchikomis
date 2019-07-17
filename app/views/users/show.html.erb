@@ -1,37 +1,83 @@
-<div class="row">
-  <aside class="col-xs-4">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title"><%= @user.name %></h3>
+<div id="wrapper">
+  <div class="container1">
+    <div id="content">
+      <div id="sidebar">
+        <h5 class="sidebarTitle">メニュー</h5>
+        <div class="sidebarList">
+          <ul>
+            <li>
+              <i class="fas fa-edit"></i><%= link_to 'ユーザー情報編集', edit_user_path(@user) %>
+            </li>
+            <li>
+              <i class="fas fa-portrait"></i><a href="/reviews/new">商品の口コミを投稿する</a></li>
+            </li>
+            <li>
+              <i class="fas fa-heart"></i><%= link_to 'いいねした口コミ', like_reviews_user_path(@user) %>
+            </li>
+          </ul>
+        </div>
+
       </div>
-      <div class="panel-body">
-         <% if @user.image_user? %>
-           <%= image_tag @user.image_user.url %>
-          <% else %>
-            <div class="user">
-              <%=  image_tag("/user_images/wanko.jpg", :size => "400×400") %>
+      <div id="main1">
+        <div class="breadcrumbs"><a href="/">TOP</a><span class="current"><%= @user.name %></span></div>
+        
+          <h5 class="pageTitle">
+            投稿一覧
+          <span><%= @user.name %>さんの投稿したクチコミです</span>
+          </h5>
+          
+          
+          <% if @reviews.any? %>
+          <% @reviews.each do |review| %>
+          <div id="review-<%= review.id %>" data-review-id="<%= review.id %>">
+            <div class = "block">
+              <div>
+                <article class = "henry post">
+                  <h2 class = "review-content-title">
+                    <span class = "review-index-img">
+                      <% if review.user.image_user.present? %>
+                        <%= image_tag review.user.image_user.thumb.url %>
+                      <% else %>
+                        <div class="user">
+                          <%=  image_tag("/user_images/wanko.jpg", :size => "40×40") %>
+                        </div>
+                      <% end %>
+                    </span>
+                    <span>
+                      <%= review.user.name %>さんの口コミ
+                    </span>
+                  </h2>
+                  <div class = "review-content">
+                    <h3>おすすめ度</h3>
+                    <div class="star-rating" data-score= <%= review.point %>></div>
+                  </div>
+                  <div class = "review-content">
+                    <h3>評価理由</h3>
+                    <%= review.content %>>
+                  </div>
+                <%= render "likes/like_button", review: review %>
+                </article>
+              </div>
             </div>
+          </div>
           <% end %>
+        <% end %>
+          
+          
+        </div>
       </div>
     </div>
-  </aside>
-  <div class="col-md-8">
-  <p class="orange b">名前</p>
-  <p><span class="orange b"><%= @user.name %></span>
-  <p class="orange b">自己紹介</p>
-  <p><%= @user.introduce %></p>
-  </div>
-  <% if current_user.id == @user.id %>
-  <%= link_to 'プロフィールを編集する', edit_user_path(@user) %>
- <% end %>
-  
-    
-  <div class="col-xs-8">
-    <ul class="nav nav-tabs nav-justified">
-      <li class="<%= 'active' if current_page?(user_path(@user)) %>"><%= link_to user_path(@user) do %>投稿<span class="badge"><%= @count_posts %></span><% end %></li>
-      <li><a href="#">Followings</a></li>
-      <li><a href="#">Followers</a></li>
-    </ul>
-    <%= render 'reviews/reviews', reviews: @reviews %>
   </div>
 </div>
+
+
+<script>
+$('.star-rating').raty({
+  path: '/assets',
+  readOnly: true,
+  score: function() {
+  return $(this).attr('data-score');
+  
+  }
+});
+</script>

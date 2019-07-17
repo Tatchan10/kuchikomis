@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    models:
+      review: 口コミ
+    attributes:
+      review:
+        product: 商品
+        user: あなた
+        

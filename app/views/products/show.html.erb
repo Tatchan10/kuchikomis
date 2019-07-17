@@ -1,54 +1,99 @@
-<div class="row">
-  <aside class="col-xs-4">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title"><%= @product.name %></h3>
+<div id = "wrapper">
+  <div id = "container">
+    <div id = "content">
+      <div id = "sidebar">
+        
       </div>
-      <div class="panel-body">
-         <% if @product.image_product? %>
-           <%= image_tag @product.image_product.url %>
-          <% else %>
-            <div class="user">
-              <%=  image_tag("/user_images/wanko.jpg", :size => "400×400") %>
+      
+        
+        
+        
+      <div id = "main">
+        <h1 class = "pageTitle">
+          <%= @product.name %>の口コミ一覧
+        </h1>
+        <div class="image-top">
+          <%= image_tag @product.image_product_hed.url %>
+        </div>
+        
+        <h2 class = "school-category-title stripe">
+          おすすめ度平均
+        </h2>
+        <div class="star-rating" data-score= <%= @average_review[@product.id] %>></div>
+        
+        <h2 class="school-category-title stripe">
+          総合評価
+        </h2>
+          <%= @product.score %>
+          <div class="image-top1">
+            <%= image_tag @product.evaluation.url %>
+          </div>        
+          
+        <h2 class="school-category-title stripe">
+          商品価格
+        </h2>
+        <%= @product.price %>
+        
+        <h2 class="school-category-title stripe">
+          商品概要
+        </h2>
+        <%= @product.introduce %>
+        
+        <h2 class="school-category-title stripe">
+          内容量
+        </h2>
+        <%= @product.capacity %>
+        
+        <h2 class="school-category-title stripe">
+          <%= @product.name %>の口コミ一覧
+        </h2>
+        
+        <% if @reviews.any? %>
+          <% @reviews.each do |review| %>
+          <div id="review-<%= review.id %>" data-review-id="<%= review.id %>">
+            <div class = "block">
+              <div>
+                <article class = "henry post">
+                  <h2 class = "review-content-title">
+                    <span class = "review-index-img">
+                      <% if review.user.image_user.present? %>
+                        <%= image_tag review.user.image_user.thumb.url %>
+                      <% else %>
+                        <div class="user">
+                          <%=  image_tag("/user_images/wanko.jpg", :size => "40×40") %>
+                        </div>
+                      <% end %>
+                    </span>
+                    <span>
+                      <%= review.user.name %>さんの口コミ
+                    </span>
+                  </h2>
+                  <div class = "review-content">
+                    <h3>おすすめ度</h3>
+                    <div class="star-rating" data-score= <%= review.point %>></div>
+                  </div>
+                  <div class = "review-content">
+                    <h3>評価理由</h3>
+                    <%= review.content %>>
+                  </div>
+                <%= render "likes/like_button", review: review %>
+                </article>
+              </div>
             </div>
+          </div>
           <% end %>
+        <% end %>
       </div>
+      
+      
+      
     </div>
-  </aside>
-  <div class="col-md-8">
-  <table class="table table-bordered">
-  <tr>
-    <th class="text-center">商品名</th>
-    <td class="text-center"><%= @product.name %></td>
-  </tr>
-  <tr>
-    <th class="text-center">価格</th>
-    <td class="text-center"><%= @product.price %></td>
-  </tr>
-  <tr>
-    <th class="text-center">内容量</th>
-    <td class="text-center"><%= @product.capacity %></td>
-  </tr>
-  <tr>
-    <th class="text-center">評価</th>
-    <td class="text-center"><div class="star-rating" data-score= <%= @average_review[@product.id] %>></div></td>
-  </tr>
-  </table>
-
-  </div>
-
-
-    
-  <div class="col-xs-8">
-    <ul class="nav nav-tabs nav-justified">
-      <li class="<%= 'active' if current_page?(product_path(@product)) %>"><%= link_to product_path(@product) do %>投稿<span class="badge"><%= @count_posts %></span><% end %></li>
-      <li><a href="#">Followings</a></li>
-      <li><a href="#">Followers</a></li>
-    </ul>
-    <%= render 'reviews/reviews', reviews: @reviews %>
   </div>
 </div>
-
+          
+        
+          
+     
 <script>
 $('.star-rating').raty({
   path: '/assets',

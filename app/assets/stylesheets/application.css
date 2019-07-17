@@ -39,7 +39,7 @@
 }
 
 .main-container1 {
-  background-image: url("images_toppage/687151.jpg");
+  background-image: url("images_toppage/main_visual4.jpg") no-repeat center center;
   width: 1204px;
   height: 600px;
   background-size: cover;
@@ -74,36 +74,32 @@
     font-family: "UD デジタル 教科書体 NK-B","UD Digi Kyokasho NK-B";
     text-shadow: blue 1px 1px 0px, blue -1px 1px 0px,
              blue 1px -1px 0px, blue -1px -1px 0px;
+    color: #fff;
 }
 
 
 
 /* body */
-body {
-  background: #f2f2f2;
-}
-footer {
-  margin-top: 40px;
-}
 
-/* navbar */
-.navbar {
-  background-color: #fff;
-}
-.navbar-header img {
-  margin-top: 5px;
-  height: 40px;
-}
+
+
+
 
 /* cover */
 .cover {
   margin-top: -20px;
   margin-bottom: 20px;
   width: 100%;
-  height: 300px;
-  background-image: url("images_toppage/687151.jpg");
-  
+  height: 500px;
+  background-image: url("images_toppage/main_visual8.png") ;
+  background-repeat:no-repeat;
   background-size: cover;
+}
+
+@media (min-width: 900px) {
+  .cover {
+    height: 700px;
+  }
 }
 .cover .cover-inner {
   height: 100%;
@@ -139,4 +135,111 @@ footer {
     right: auto;
     left: 0;
   }
+}
+
+.slider{
+    margin: 100px auto;
+    width: 80%;
+    opacity: 0;
+    transition: 3s;
+}
+.slick-initialized{
+    opacity: 1
+}
+
+
+.slider div {
+    height: 400px;
+}
+.slider img {
+    width: 100%;
+}
+
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.section-heading {
+    margin-top: 40px;
+}
+
+.ml-auto, .mx-auto {
+    margin-left: auto !important;
+}
+.mr-auto, .mx-auto {
+    margin-right: auto !important;
+}
+
+.isAnimate {
+    opacity: 1;
+    -webkit-transform: translateY(20px);
+    transform: translateY(20px);
+    transition: all 0.5s;
+}
+@media screen and (min-width: 400px){
+.elem {
+    position: relative;
+    width: 350px;
+    margin: 30px auto 0;
+}
+}
+@media screen and (min-width: 400px){
+.top-school {
+    display: inline-block;
+    box-sizing: border-box;
+    transition: all .3s;
+}
+}
+
+@media screen and (min-width: 400px){
+.school-content {
+    position: absolute;
+    top: 30%;
+    margin: 10px;
+    padding: 0;
+    color: #000;
+}
+}
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 400px){
+.kuchicomi-average {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    color: #000;
+    border-bottom: solid 1px #FF8856;
+}
+}
+
+footer {
+    width: 100%;
+    padding: 10px 0px;
+    background-color: #FF8856;
+}
+footer ul {
+    display: table;
+    margin: 10px auto;
+    list-style-type: none;
+}
+
+footer ul li {
+    text-decoration: none;
+    display: inline;
+}
+
+footer ul li a {
+    margin: 0 12px;
+    color: #000;
 }
